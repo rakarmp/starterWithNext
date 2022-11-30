@@ -2,16 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Circle from "./components/circle";
-import { useState, useEffect } from "react";
-import { CircularProgress, Flex } from "@chakra-ui/react";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(false);
-  }, []);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -19,19 +11,7 @@ export default function Home() {
         <meta name="description" content="Starter By RakaTrust" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {!loading ? (
-        <Circle />
-      ) : (
-        <Flex
-          direction="column"
-          align="center"
-          justify="center"
-          minH="100vh"
-          p={8}
-        >
-          <CircularProgress isIndeterminate color="green.300" />
-        </Flex>
-      )}
+      <Circle />
 
       <footer className={styles.footer}>
         <a
